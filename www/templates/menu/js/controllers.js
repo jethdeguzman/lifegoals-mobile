@@ -72,5 +72,32 @@ appControllers.controller('menuCtrl', function ($scope, $timeout, $mdUtil, $mdSi
             }
         }
     },100);
+    
+    $scope.userInfo = localStorage.get("Facebook");
 
+    $scope.logOut = function ($event) {
+        $mdDialog.show({
+            controller: 'DialogController',
+            templateUrl: 'confirm-dialog.html',
+            targetEvent: $event,
+            locals: {
+                displayOption: {
+                    title: "Confirm to Logout",
+                    content: "Do you want to logout Life Goals?",
+                    ok: "Confirm",
+                    cancel: "Close"
+                }
+            }
+        }).then(function () {
+            localStorage.set("Facebook", null);
+            $scope.userinfoData = localStorage.get("Facebook");
+
+            if ($scope.userinfoData == null) {
+                $state.go('login');
+            }
+
+        }, function () {
+            
+        });
+    };
 });
