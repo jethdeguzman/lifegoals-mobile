@@ -1,0 +1,31 @@
+<ion-view view-title="Create Goal">
+    <ion-nav-buttons side="left">
+        <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
+            <i class="ion-android-arrow-back "></i>
+        </a>
+    </ion-nav-buttons>
+    <md-toolbar class="bar-subheader md-tall md-primary toolbar-medium">
+        <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url({{imageList[0]}})">
+        </div>
+        <a class="md-button md-accent md-fab fab-toolbar-medium" style="background: #009587 !important;" ng-click="selectImage(1)" aria-label="showListBottomSheet">
+            <i class="fa fa-picture-o"></i>
+        </a>
+    </md-toolbar>
+    <ion-content id="image-picker-content">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Specify your goal?</label> 
+            <input ng-model="goal.name">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>What's your target amount?</label>
+            <input ng-model="goal.targetAmount" type="number" class="input-border">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>What's your target date?</label>
+            <input ng-model="goal.targetDate" type="date" class="input-border" style="width:100%">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <md-button class="md-raised md-primary" ng-click="saveGoal()">Save</md-button>
+        </md-input-container>
+    </ion-content>
+</ion-view>
