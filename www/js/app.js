@@ -10,8 +10,8 @@ window.globalVariable = {
         wordpressColor: "#0087BE"
     },
     startPage: {
-        url: "/app/account",
-        state: "app.account"
+        url: "/app/goal",
+        state: "app.goal"
     },
     message: {
         errorMessage: "Technical error please try again later."
