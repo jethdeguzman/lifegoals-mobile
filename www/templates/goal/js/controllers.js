@@ -29,9 +29,7 @@ appControllers.controller('createGoalCtrl', function ($scope, $state, $cordovaIm
                 for (var i = 0; i < results.length; i++) {
                     $scope.imageList.push(results[i]);
                 }
-                alert(JSON.stringify($scope.imageList));
             }, function (error) {
-                alert(JSON.stringify(error))
                 console.log(error);
             });
     };
