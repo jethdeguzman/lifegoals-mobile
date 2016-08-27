@@ -1,4 +1,4 @@
-appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, $http, localStorage) {
+appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, $http, localStorage,  $mdToast) {
     $scope.initialForm = function () {
         $scope.isLogin = false;
 
@@ -9,11 +9,8 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
             first_name: "",
             last_name: "",
             email: "",
-            birthday: "",
             link: "",
-            cover: "",
             pictureProfileUrl: "",
-            gender: "",
             id: "",
             access_token: ""
         };
@@ -52,34 +49,65 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
                             format: "json"
                         }
                     }).then(function (result) {
-                       
+
                         $scope.userInfo = {
                             name: result.data.name,
                             first_name: result.data.first_name,
                             last_name: result.data.last_name,
                             email: result.data.email,
-                            birthday: result.data.birthday,
                             link: result.data.link,
-                            cover: result.data.cover,
                             pictureProfileUrl: "http://graph.facebook.com/" + result.data.id + "/picture?width=62&height=62",
-                            gender: result.data.gender,
                             id: result.data.id,
                             access_token: $scope.accessToken
                         };
-            
+
+                        data = {
+                            'facebook_id' : result.data.id,
+                            'name' : result.data.name,
+                            'firstname' : result.data.first_name,
+                            'lastname' : result.data.last_name,
+                            'email' : result.data.email,
+                            'link' result.data.link: 
+                        }
+                        
+                        $http.post('http://lifegoals.cloudapp.net/api/v1/users', data)
+                             .success(function(result){
+                                $scope.userInfo.userId = result.user_id;
+                             })
+                             .error(function(){
+                                $state.go('login');
+                                $scope.showToast('A problem occured. Please try again.');  
+                             });
                         localStorage.set("Facebook", $scope.userInfo);
-                      
                         $state.go("app.goal");
+                         $scope.showToast('Login successfully');
+
                     }, function (error) {
                          $state.go('login');
+                         $scope.showToast('A problem occured. Please try again.');
                     });
                 }
                 , function (error) {
                      $state.go('login');
+                     $scope.showToast('A problem occured. Please try again.');
                 });
             $scope.isLoading = false;
         }
     };
+
+    $scope.showToast = function (title) {
+        $mdToast.show({
+            controller: 'toastController',
+            templateUrl: 'toast.html',
+            hideDelay: 800,
+            position: 'bottom',
+            locals: {
+                displayOption: {
+                    title: title
+                }
+            }
+        });
+    }
 
     $scope.initialForm();
 
