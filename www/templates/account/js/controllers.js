@@ -12,4 +12,8 @@ appControllers.controller('accountCtrl', function ($scope, $timeout, $state, $st
         }, ($scope.isAnimated  ? 300 : 0));
     };
 
+    $scope.connectCoins = function() {
+        //coins integration
+    }
+
 });

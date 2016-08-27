@@ -1,5 +1,176 @@
+<style type="text/css">
+    md-tabs md-ink-bar {
+        background: rgb(43, 121, 20);    
+    }
+    md-content.account{
+        padding:10px 10px 40px;
+        background: #F7F7F7;
+    }
+    .view-goals-btn{
+        float: right;
+        margin-top: -28px;
+        margin-right: 28px;
+        font-size: 25px;
+        background: #009587 !important;
+        color: white !important;
+    }
+    .tx-icon{
+        vertical-align:middle; 
+        width:35px;
+        border-radius:50%
+    }
+    md-list-item{
+        padding: 0px 10px !important;
+    }
+    .deposit{
+        color:#3C8A3F;
+    }
+</style>
 <ion-view view-title="Accounts">
-    <ion-content has-bouncing="true">
-        Account
+    <ion-header-bar class="bar bar-subheader" style="height:222px; padding:0px">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Total">
+                <md-content class="account">
+                    <div class="row">
+                        <div class="col">
+                            <h1>PHP</h1>
+                        </div>
+                        <div class="col">
+                            <h1 style="text-align:right">3200.00</h1>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Union Bank">
+                <md-content class="account">
+                    <div class="row">
+                        <div class="col">
+                            <h1>PHP</h1>
+                        </div>
+                        <div class="col">
+                            <h1 style="text-align:right">1200.00</h1>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Coins.ph">
+                <md-content class="account">
+                    <div class="row">
+                        <div class="col" style="text-align:center">
+                            <md-button class="md-raised md-warn" ng-click="connectCoins()">Connect your Coins.PH account</md-button>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+        <a class="md-button md-accent md-fab view-goals-btn" ng-click="navigateTo('app.goal')" aria-label="Add" style="">
+            <i class="fa fa-trophy"></i>
+        </a><!--end button section-->
+        <md-divider></md-divider>
+        <md-subheader class="md-no-sticky"><i class="fa fa-exchange"></i> Transactions</md-subheader>
+    </ion-header-bar>
+    <ion-content class="has-subheader" has-bouncing="true" style="margin-top:180px;">
+        <md-content>
+            <md-list style="padding:0px;">
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="https://lh6.ggpht.com/kJOrTbAEFR2OmyusLxZ2nT5CWOGeVXA94RetwPKPRxo5rYyobgzoAZFWxr72RB74wxg0=w170" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Trip to Cebu <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">50.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="http://67.media.tumblr.com/avatar_f8d29d92f8ac_128.png" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Samsung S7 <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">50.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="http://67.media.tumblr.com/avatar_f8d29d92f8ac_128.png" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Mac Book Pro <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">100.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="https://lh6.ggpht.com/kJOrTbAEFR2OmyusLxZ2nT5CWOGeVXA94RetwPKPRxo5rYyobgzoAZFWxr72RB74wxg0=w170" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Trip to Cebu <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">120.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="https://lh6.ggpht.com/kJOrTbAEFR2OmyusLxZ2nT5CWOGeVXA94RetwPKPRxo5rYyobgzoAZFWxr72RB74wxg0=w170" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Trip to Cebu <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">200.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="https://lh6.ggpht.com/kJOrTbAEFR2OmyusLxZ2nT5CWOGeVXA94RetwPKPRxo5rYyobgzoAZFWxr72RB74wxg0=w170" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Trip to Cebu <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">P300.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="http://67.media.tumblr.com/avatar_f8d29d92f8ac_128.png" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Mac Book Pro <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">20.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item class="md-list-item-default row">
+                    <div class="col-15">
+                        <img src="http://67.media.tumblr.com/avatar_f8d29d92f8ac_128.png" class="tx-icon">
+                    </div>
+                    <div class="col">
+                        Samsung S7 <small>(08/10/16)</small>
+                    </div>
+                    <div class="col-15">
+                        <small class="deposit">80.00</small>
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+            </md-list>
+        </md-content>
+
     </ion-content>
 </ion-view>
