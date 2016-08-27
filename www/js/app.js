@@ -17,7 +17,7 @@ window.globalVariable = {
         errorMessage: "Technical error please try again later."
     },
     oAuth: {
-      facebook: "",
+      facebook: "654123638089548",
     }
 };
 
@@ -124,8 +124,14 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                         controller: 'accountCtrl'
                     }
                 }
+            })
+            .state('login', {
+                url: "/login",
+                cache: false,
+                templateUrl: "templates/login/html/login.html",
+                controller: "loginCtrl" 
             });
-            
+
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
 
     });

@@ -1,0 +1,25 @@
+<style type="text/css">
+.login .scroll-content {
+  display: table !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: -50px;
+  text-align: center;
+}
+.login .scroll {
+  display: table-cell;
+  vertical-align: middle;
+}
+</style>
+<ion-view class="login">
+    <ion-content align="center">
+        <div>
+            <img src="img/logo.png" style="width:40%;">
+            <div class="ng-hide" ng-show="!isLogin" style="position:absolute; bottom:0px; left:0; right:0;">
+                <a class="md-raised social-button md-button md-default-theme facebook-background" ng-click="login()">
+                    LOG IN WITH FACEBOOK
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
