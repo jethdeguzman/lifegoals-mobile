@@ -15,6 +15,14 @@
     </ion-side-menu-content>
     <md-sidenav md-component-id="left" on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()">
         <div class="material-background" id="toggle-menu-left-header">
+            <div class="menu-left-header">
+                <img class="user-img" src="{{userInfo.pictureProfileUrl}}">
+                <p>
+                    <span class="title">{{userInfo.name}}</span>
+                    <br/>
+                    <span class="sub-title">{{userInfo.email}}</span>
+                </p>
+            </div>
         </div>
         <ion-content id="toggle-menu-left-content">
             <div class="menu-list">
