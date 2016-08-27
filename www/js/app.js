@@ -114,7 +114,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                 url: "/app",
                 abstract: true,
                 templateUrl: "templates/menu/html/menu.html",
-                controller: 'menuCtrl'
+                controller: 'menuCtrl',
+                reload:true,
             })
             .state('app.account', {
                 url: "/account",
