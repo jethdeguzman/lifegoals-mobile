@@ -1,3 +1,2 @@
-# Ionic-Base-Material
-Ionic app with basic material design setup
-
+# LifeGoals-Mobile-App
+Social Saving Planner app - Entry to Unionbank hackathon

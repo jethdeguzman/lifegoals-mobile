@@ -130,6 +130,15 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                 cache: false,
                 templateUrl: "templates/login/html/login.html",
                 controller: "loginCtrl" 
+            })
+            .state('app.goal', {
+                url: "/goal",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/goal/html/goal.html",
+                        controller: "goalCtrl"
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);

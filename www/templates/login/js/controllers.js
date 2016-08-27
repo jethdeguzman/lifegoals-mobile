@@ -66,16 +66,16 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
                             id: result.data.id,
                             access_token: $scope.accessToken
                         };
-                        alert(JSON.stringify($scope.userInfo));
+            
                         localStorage.set("Facebook", $scope.userInfo);
                       
                         $state.go("app.account");
                     }, function (error) {
-                        
+                         $state.go('login');
                     });
                 }
                 , function (error) {
-                    console.log(error);
+                     $state.go('login');
                 });
             $scope.isLoading = false;
         }

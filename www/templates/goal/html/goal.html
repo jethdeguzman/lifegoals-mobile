@@ -1,0 +1,243 @@
+<style type="text/css">
+    #goal-feed-content {
+        padding: 10px 10px 10px 8px;
+        background-color: #f6f6f6; 
+    }
+    #goal-feed-content .goal-list .goal-item {
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.14), 0px 2px 2px 0px rgba(0, 0, 0, 0.098), 0px 1px 5px 0px rgba(0, 0, 0, 0.084);
+        margin-bottom: 14px; 
+    }
+    #goal-feed-content .goal-list .goal-item .goal-img {
+        height: 175px;
+        background-size: cover;
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px; 
+        background-position: center;
+        position: relative;
+    }
+    #goal-feed-content .goal-list .goal-item .goal-content {
+        padding: 6px 10px 5px 10px;
+        background-color: white;
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px; 
+    }
+    #goal-feed-content .goal-list .goal-item .goal-content h1 {
+        font-size: 16px;
+        margin: 0;
+        color: gray; 
+    }
+    #goal-feed-content .goal-list .goal-item .goal-content p {
+        font-size: 12px;
+        margin: 0;
+        color: gray; 
+    }
+    #goal-feed-content .goal-list .goal-item .goal-content .percentage {
+        background-color: #ff5252;
+        color: white;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: center; 
+        padding:2px;
+    }
+    .title-wrapper{
+        position: absolute;
+        bottom: 0px;
+        left: 10px;
+        color: white;
+        width: 90%;
+    }
+    .title-wrapper h1{
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+    }
+    md-tabs md-ink-bar {
+        background: rgb(43, 121, 20);    
+    }
+    
+</style>
+<ion-view title="Goals">
+    <ion-content has-bouncing="true">
+        <md-tabs md-dynamic-height md-border-bottom md-dynamic-height>
+            <md-tab label="On Process">
+                <md-content>
+                    <div id="goal-feed-content">
+                        <div class="goal-list">
+                            <div class="goal-item" ng-click="alert()">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
+                                        <p>Saved P10.00 of P5000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">20%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
+                                        <p>Saved P40000.00 of P65000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="70"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">70%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
+                                        <p>Saved P0.00 of P40000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Achieved">
+                <md-content>
+                    <div id="goal-feed-content">
+                        <div class="goal-list">
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
+                                        <p>Saved 5000.00 in 20 days</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
+                                        <p>Saved P65000.00 in 96 days</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
+                                        <p>Saved P40000.00 in 450 days</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Public">
+                <md-content>
+                    <!--list section-->
+                    <div id="goal-feed-content">
+                        <div class="goal-list">
+                            <!--goal item section-->
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
+                                        <p>Saved P10.00 of P5000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">20%</span>
+                                    </div>
+                                </div>
+                            </div><!--end goal item section-->
+
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
+                                        <p>Saved P40000.00 of P65000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="70"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">70%</span>
+                                    </div>
+                                </div>
+                            </div><!--end goal item section-->
+
+                            <div class="goal-item">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
+                                    <div class="title-wrapper">
+                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
+                                        <p>Saved P0.00 of P40000.00</p>
+                                    </div>
+                                </div>
+                                <div class="goal-content row">
+                                    <div class="col">
+                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
+                                    </div>
+                                    <div class="col-15" style="text-align:center">
+                                        <span class="percentage">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </ion-content>
+    <div class="footer-fab-bar">
+        <a class="md-button md-accent md-fab fab-footer" aria-label="Add" ng-click="navigateTo('app.createGoal')" style="background: #009587 !important;">
+            <i class="fa fa-pencil"></i>
+        </a>
+    </div>
+</ion-view>
