@@ -39,3 +39,8 @@ appControllers.controller('createGoalCtrl', function ($scope, $state, $cordovaIm
         //http
     }
 });
+
+appControllers.controller('viewGoalCtrl', function ($scope, $state, $stateParams) {
+
+});
+

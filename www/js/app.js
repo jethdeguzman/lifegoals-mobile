@@ -151,6 +151,18 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                         controller: "createGoalCtrl"
                     }
                 }
+            })
+            .state('app.viewGoal', {
+                url: "/goal/id",
+                params:{
+                    isAnimated:false
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/goal/html/view.html",
+                        // controller: "viewGoalCtrl"
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise(window.globalVariable.startPage.url);
