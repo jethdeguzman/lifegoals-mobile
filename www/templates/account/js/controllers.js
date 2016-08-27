@@ -52,15 +52,9 @@ appControllers.controller('accountCtrl', function ($scope, $timeout, $state, $st
 
                 data = JSON.stringify(data);
                 window.localStorage.auth = data;
-                alert(data);
                 ref.close();
             }
         });
-
-        ref.addEventListener('loadstop', function(event) {
-            alert('loadstop');
-        });
-        
     };
 
 });
