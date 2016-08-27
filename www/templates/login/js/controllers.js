@@ -29,7 +29,7 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
         $scope.userInfo = localStorage.get("Facebook");
         if ($scope.userInfo != null) {
             $scope.isLogin = true;
-            $state.go('app.account');
+            $state.go('app.goal');
         }
 
         return $scope.userInfo;
@@ -69,7 +69,7 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
             
                         localStorage.set("Facebook", $scope.userInfo);
                       
-                        $state.go("app.account");
+                        $state.go("app.goal");
                     }, function (error) {
                          $state.go('login');
                     });
