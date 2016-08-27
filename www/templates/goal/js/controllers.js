@@ -1,7 +1,13 @@
-appControllers.controller('goalCtrl', function ($scope, $state) {
-   $scope.navigateTo = function (targetPage) {
+appControllers.controller('goalCtrl', function ($scope, $state, localStorage) {
+    var userInfo = localStorage.get("Facebook");
+    if (userInfo == null){
+        $state.go('login');
+    }
+
+    $scope.navigateTo = function (targetPage) {
         $state.go(targetPage);
     };
+
 });
 
 appControllers.controller('createGoalCtrl', function ($scope, $state, $cordovaImagePicker) {
