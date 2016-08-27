@@ -1,4 +1,4 @@
-appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, $http, localStorage,  $mdToast) {
+appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, $http, localStorage, $mdToast) {
     $scope.initialForm = function () {
         $scope.isLogin = false;
 
@@ -67,29 +67,27 @@ appControllers.controller('loginCtrl', function ($scope, $state, $cordovaOauth, 
                             'firstname' : result.data.first_name,
                             'lastname' : result.data.last_name,
                             'email' : result.data.email,
-                            'link' result.data.link: 
+                            'link' : result.data.link
                         }
                         
-                        $http.post('http://lifegoals.cloudapp.net/api/v1/users', data)
-                             .success(function(result){
+                        $http.post('http://lifegoals.cloudapp.net/api/v1/users', data).success(
+                            function(result){
                                 $scope.userInfo.userId = result.user_id;
-                             })
-                             .error(function(){
+                                localStorage.set("Facebook", $scope.userInfo);
+                                $state.go("app.goal");
+                                $scope.showToast('Login successfully');
+                             }).error(function (error) {
                                 $state.go('login');
-                                $scope.showToast('A problem occured. Please try again.');  
+                                $scope.showToast('A problem occured. Please try again.1');  
                              });
-                        localStorage.set("Facebook", $scope.userInfo);
-                        $state.go("app.goal");
-                         $scope.showToast('Login successfully');
-
                     }, function (error) {
                          $state.go('login');
-                         $scope.showToast('A problem occured. Please try again.');
+                         $scope.showToast('A problem occured. Please try again.2');
                     });
                 }
                 , function (error) {
                      $state.go('login');
-                     $scope.showToast('A problem occured. Please try again.');
+                     $scope.showToast('A problem occured. Please try again.3');
                 });
             $scope.isLoading = false;
         }

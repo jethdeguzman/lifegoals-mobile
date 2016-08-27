@@ -124,7 +124,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                         templateUrl: "templates/account/html/account.html",
                         controller: 'accountCtrl'
                     }
-                }
+                },
+                reload:true,
             })
             .state('login', {
                 url: "/login",
@@ -139,7 +140,8 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                         templateUrl: "templates/goal/html/goal.html",
                         controller: "goalCtrl"
                     }
-                }
+                },
+                reload:true,
             })
             .state('app.createGoal', {
                 url: "/goal/create",
