@@ -62,52 +62,19 @@
                 <md-content>
                     <div id="goal-feed-content">
                         <div class="goal-list">
-                            <div class="goal-item" ng-click="navigateTo('app.viewGoal')">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                            <div class="goal-item" ng-repeat="goal in ongoing" ng-click="navigateTo('app.viewGoal', {{goal.id}})">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('{{ goal.image_path }}')">
                                     <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
-                                        <p>Saved P10.00 of P5000.00</p>
+                                        <h1 style="margin-bottom:0px">{{ goal.name }}</h1>
+                                        <p>Saved P{{ goal.accumulated_amount }} of P{{ goal.target_amount}}</p>
                                     </div>
                                 </div>
                                 <div class="goal-content row">
                                     <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+                                        <md-progress-linear md-mode="determinate" value="{{ goal.accumulated_amount_percentage }}"></md-progress-linear>
                                     </div>
                                     <div class="col-15" style="text-align:center">
-                                        <span class="percentage">20%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
-                                        <p>Saved P40000.00 of P65000.00</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="70"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">70%</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
-                                        <p>Saved P0.00 of P40000.00</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">0%</span>
+                                        <span class="percentage">{{ goal.accumulated_amount_percentage }}%</span>
                                     </div>
                                 </div>
                             </div>
@@ -119,53 +86,19 @@
                 <md-content>
                     <div id="goal-feed-content">
                         <div class="goal-list">
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                            <div class="goal-item" ng-repeat="goal in achieved" ng-click="navigateTo('app.viewGoal', {{goal.id}})">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('{{ goal.image_path}}')">
                                     <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
-                                        <p>Saved 5000.00 in 20 days</p>
+                                        <h1 style="margin-bottom:0px">{{ goal.name }}</h1>
+                                        <p>Saved {{ goal.accumulated_amount }} in {{ goal.days_achieved }} days</p>
                                     </div>
                                 </div>
                                 <div class="goal-content row">
                                     <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
+                                        <md-progress-linear md-mode="determinate" value="{{ goal.accumulated_amount_percentage }}"></md-progress-linear>
                                     </div>
                                     <div class="col-15" style="text-align:center">
-                                        <span class="percentage">100%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
-                                        <p>Saved P65000.00 in 96 days</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="100"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">100%</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
-                                        <p>Saved P40000.00 in 450 days</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">0%</span>
+                                        <span class="percentage">{{ goal.accumulated_amount_percentage }}%</span>
                                     </div>
                                 </div>
                             </div>
@@ -178,54 +111,19 @@
                     <!--list section-->
                     <div id="goal-feed-content">
                         <div class="goal-list">
-                            <!--goal item section-->
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                            <div class="goal-item" ng-repeat="goal in public" ng-click="navigateTo('app.viewGoal', {{goal.id}})">
+                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('{{ goal.image_path }}')">
                                     <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Trip to Cebu</h1>
-                                        <p>Saved P10.00 of P5000.00</p>
+                                        <h1 style="margin-bottom:0px">{{ goal.name }}</h1>
+                                        <p>Saved P{{ goal.accumulated_amount }} of P{{ goal.target_amount}}</p>
                                     </div>
                                 </div>
                                 <div class="goal-content row">
                                     <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+                                        <md-progress-linear md-mode="determinate" value="{{ goal.accumulated_amount_percentage }}"></md-progress-linear>
                                     </div>
                                     <div class="col-15" style="text-align:center">
-                                        <span class="percentage">20%</span>
-                                    </div>
-                                </div>
-                            </div><!--end goal item section-->
-
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://images.newseveryday.com/data/images/full/43002/apple-may-finally-put-down-the-legacy-macbook-pro.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Mac Book Pro</h1>
-                                        <p>Saved P40000.00 of P65000.00</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="70"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">70%</span>
-                                    </div>
-                                </div>
-                            </div><!--end goal item section-->
-
-                            <div class="goal-item">
-                                <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('http://cdn.slashgear.com/wp-content/uploads/2016/03/samsung-galaxy-s7-edge-sg-9.jpg')">
-                                    <div class="title-wrapper">
-                                        <h1 style="margin-bottom:0px">Samsung S7</h1>
-                                        <p>Saved P0.00 of P40000.00</p>
-                                    </div>
-                                </div>
-                                <div class="goal-content row">
-                                    <div class="col">
-                                        <md-progress-linear md-mode="determinate" value="0"></md-progress-linear>
-                                    </div>
-                                    <div class="col-15" style="text-align:center">
-                                        <span class="percentage">0%</span>
+                                        <span class="percentage">{{ goal.accumulated_amount_percentage }}%</span>
                                     </div>
                                 </div>
                             </div>

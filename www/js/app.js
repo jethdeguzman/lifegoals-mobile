@@ -148,9 +148,6 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
             })
             .state('app.createGoal', {
                 url: "/goal/create",
-                params:{
-                    isAnimated:false
-                },
                 views: {
                     'menuContent': {
                         templateUrl: "templates/goal/html/create.html",
@@ -159,14 +156,11 @@ angular.module('starter', ['ionic','ngIOS9UIWebViewPatch', 'starter.controllers'
                 }
             })
             .state('app.viewGoal', {
-                url: "/goal/id",
-                params:{
-                    isAnimated:false
-                },
+                url: "/goal/:id",
                 views: {
                     'menuContent': {
                         templateUrl: "templates/goal/html/view.html",
-                        // controller: "viewGoalCtrl"
+                        controller: "viewGoalCtrl"
                     }
                 }
             });

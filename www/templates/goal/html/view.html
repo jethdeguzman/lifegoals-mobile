@@ -28,7 +28,7 @@
 }
 
 </style>
-<ion-view view-title="Trip to Cebu">
+<ion-view view-title="{{ goal.name }}">
     <ion-nav-buttons side="left">
         <a ng-click="$ionicGoBack()" class="button back-button buttons  button-clear header-item nav-back-btn">
             <i class="ion-android-arrow-back "></i>
@@ -38,73 +38,61 @@
         <md-content style="overflow-x:hidden;">
             <div class="row no-padding">
                 <div class="col no-padding">
-                    <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('https://c1.staticflickr.com/3/2800/4520632783_2582f1d806_z.jpg')">
+                    <div class="goal-img" style="background-image:linear-gradient( rgba(61, 156, 1, 0.45), rgba(0, 0, 0, 0.5) ), url('{{ goal.image_path }}')">
                     </div>
                 </div>
             </div>
             <div class="row" style="margin-top:10px;">
                 <div class="col">
-                    <h2 style="margin:0px;">Trip to Cebu</h2>
-                    <p>by Jeth De Guzman</p>
+                    <h2 style="margin:0px;">{{ goal.name }}</h2>
+                    <p>by {{ goal.creator }}</p>
                 </div>
                 <div class="col col-20">
-                    <h4 style="float:right">5,000.00</h4>
+                    <h4 style="float:right">{{ goal.target_amount }}</h4>
                 </div>
             </div>
             <md-subheader><i class="fa fa-line-chart"></i> Progress</md-subheader>
             <div class="row" style="margin-top:10px;">
                 <div class="col">
-                    <md-progress-linear md-mode="determinate" value="20"></md-progress-linear>
+                    <md-progress-linear md-mode="determinate" value="{{ goal.accumulated_amount_percentage }}"></md-progress-linear>
                 </div>
                 <div class="col-15" style="text-align:center">
-                    <span class="percentage">20%</span>
+                    <span class="percentage">{{ goal.accumulated_amount_percentage }}%</span>
                 </div>
             </div><br>
             <div class="row" style="text-align:center">
                 <div class="col col-33" style="border-right:1px solid #E6E2E2 !important">
-                    <p>2</p>
+                    <p>{{ contributors.length }}</p>
                     <small>Contributors</small>
                 </div>
                 <div class="col col-33" style="border-right:1px solid #E6E2E2 !important">
-                    <p>1,000.00</p>
+                    <p>{{ goal.accumulated_amount }}</p>
                     <small>Amount Saved</small>
                 </div>
                 <div class="col col-33">
-                    <p>08/30/2016</p>
+                    <p>{{ goal.target_date }}</p>
                     <small>Target Date</small>
                 </div>
             </div><br>
             <md-subheader><i class="fa fa-users"></i> Contributors </md-subheader>
             <md-list style="padding:0px;">
-                <md-list-item class="md-list-item-default row">
+                <md-list-item  ng-repeat="user in goal.contributors" class="md-list-item-default row">
                     <div class="col-15">
-                        <img src="http://graph.facebook.com/10206682508209454/picture" class="tx-icon" style="width:40px; border-radius:50%;" >
+                        <img src="http://graph.facebook.com/{{ user.facebook_id }}/picture" class="tx-icon" style="width:40px; border-radius:50%;" >
                     </div>
                     <div class="col">
-                        Jeth De Guzman
+                        {{ user.name }}
                     </div>
                     <div class="col-15">
-                        <small class="deposit">50.00</small>
+                        <small class="deposit">{{ user.total }}</small>
                     </div>
+                    <md-divider></md-divider>
                 </md-list-item>
-                <md-divider></md-divider>
-                <md-list-item class="md-list-item-default row">
-                    <div class="col-15">
-                        <img src="http://graph.facebook.com/100000043306248/picture" class="tx-icon" style="width:40px; border-radius:50%;" >
-                    </div>
-                    <div class="col">
-                        Rosiliza Rioja
-                    </div>
-                    <div class="col-15">
-                        <small class="deposit">50.00</small>
-                    </div>
-                </md-list-item>
-                <md-divider></md-divider>
             </md-list>
         </md-content>
     </ion-content>
     <div class="bar bar-footer" style="height:55px; margin:0 auto; padding:0px;">
-        <md-button class="md-raised md-primary" ng-click="fundGoal()" style="width:50%; border-radius:0px; margin:0px;">Add Funds</md-button>
+        <md-button class="md-raised md-primary" ng-click="openModal()" style="width:50%; border-radius:0px; margin:0px;">Add Funds</md-button>
         <md-button class="md-raised md-primary" ng-click="fundGoal()" style="width:50%; border-radius:0px;  background:#009587; margin:0px;">Add Contributor</md-button>
     </div>
 </ion-view>

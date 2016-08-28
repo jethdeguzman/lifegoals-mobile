@@ -1,0 +1,22 @@
+<style type="text/css">
+    .md-input-focused .md-input{
+        border-bottom: 2px solid rgb(76, 175, 80) !important;
+    }
+    .input-border {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+    }
+</style>
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced material-background-nav-bar" align-title="center">
+        <h1 class="title">Fund Your Goal</h1>
+    </ion-header-bar>
+    <ion-content style="padding:10px">
+        <md-input-container class="md-block" flex-gt-sm>
+            <label>Enter desired amount?</label>
+            <input ng-model="goal.fundAmount" type="number" class="input-border">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <md-button class="md-raised md-primary" ng-click="fundGoal()" style="background:#009587;">Continue</md-button>
+        </md-input-container>
+    </ion-content>
+</ion-modal-view> 
