@@ -36,26 +36,39 @@
                             <h1>PHP</h1>
                         </div>
                         <div class="col">
-                            <h1 style="text-align:right">3200.00</h1>
+                            <h1 style="text-align:right">{{ portfolio.total }}</h1>
                         </div>
                     </div>
                 </md-content>
             </md-tab>
             <md-tab label="Union Bank">
                 <md-content class="account">
-                    <div class="row">
+                    <div class="row" ng-if="portfolio.ubank.accountId != null">
                         <div class="col">
                             <h1>PHP</h1>
                         </div>
                         <div class="col">
-                            <h1 style="text-align:right">1200.00</h1>
+                            <h1 style="text-align:right">{{ portfolio.ubank.currentBalance }}</h1>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="portfolio.ubank.accountId == null">
+                        <div class="col" style="text-align:center">
+                            <md-button class="md-raised md-warn" ng-click="connectCoins()">Connect your UnionBank account</md-button>
                         </div>
                     </div>
                 </md-content>
             </md-tab>
             <md-tab label="Coins.ph">
                 <md-content class="account">
-                    <div class="row">
+                    <div class="row" ng-if="portfolio.coins.accountId != null">
+                        <div class="col">
+                            <h1>PHP</h1>
+                        </div>
+                        <div class="col">
+                            <h1 style="text-align:right">{{ portfolio.coins.currentBalance }}</h1>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="portfolio.coins.accountId == null"> 
                         <div class="col" style="text-align:center">
                             <md-button class="md-raised md-warn" ng-click="connectCoins()">Connect your Coins.PH account</md-button>
                         </div>

@@ -1,5 +1,36 @@
-appControllers.controller('accountCtrl', function ($scope, $timeout, $state, $stateParams, $ionicHistory, localStorage) {
-
+appControllers.controller('accountCtrl', function ($scope, $timeout, $state, $stateParams, $ionicHistory, localStorage, $mdToast, $http) {
+    $scope.portfolio = {
+        'total' : 0.00,
+        'coins' : {
+            'accountId' : null,
+            'currentBalance' : 0.00,
+            'type' : 'COINS'
+        },
+        'ubank' : {
+            'accountId' : null,
+            'currentBalance' : 0.00,
+            'type' : 'UBANK'
+        },
+        'transactions' : []
+    };
+    localStorage.set("portfolio", $scope.portfolio);
+    userInfo = localStorage.get("Facebook");
+    $http.get('http://lifegoals.cloudapp.net/api/v1/portfolio/' + userInfo.userId).success(
+        function(result){
+            $scope.portfolio.total = result.data.total;
+            for(i in result.data.accounts){
+                if(result.data.accounts[i].type == 'COINS'){
+                    $scope.portfolio.coins.accountId = result.data.accounts[i].id;
+                    $scope.portfolio.coins.currentBalance = result.data.accounts[i].current_balance;
+                }
+                if(result.data.accounts[i].type == 'UBANK'){
+                    $scope.portfolio.ubank.accountId = result.data.accounts[i].id;
+                    $scope.portfolio.ubank.currentBalance = result.data.accounts[i].current_balance;
+                }
+            }
+        }).error(function(err){
+            $scope.showToast('An Error Occured');
+        });
     $scope.navigateTo = function (stateName) {
         $timeout(function () {
             if ($ionicHistory.currentStateName() != stateName) {
@@ -50,11 +81,42 @@ appControllers.controller('accountCtrl', function ($scope, $timeout, $state, $st
 
                 console.log('saving auth data ' + JSON.stringify(data));
 
-                data = JSON.stringify(data);
+                accessToken = data.access_token;
+                
+                params = {
+                    'user_id' : userInfo.userId,
+                    'type' : 'COINS',
+                    'access_token' : accessToken
+                }
+
+                $http.post('http://lifegoals.cloudapp.net/api/v1/accounts', params).success(
+                    function(result){
+                        $scope.portfolio.coins.currentBalance = result.data.curremt_balance;
+                        $scope.portfolio.coins.accountId  = result.data.id;
+                        localStorage.set("portfolio", $scope.portfolio);
+                        $scope.showToast('Successfully Connected');
+                        location.reload();
+                    }).error(function(err){
+                        $scope.showToast('An Error Occured');
+                    });
                 window.localStorage.auth = data;
                 ref.close();
             }
         });
     };
+
+    $scope.showToast = function (title) {
+        $mdToast.show({
+            controller: 'toastController',
+            templateUrl: 'toast.html',
+            hideDelay: 800,
+            position: 'bottom',
+            locals: {
+                displayOption: {
+                    title: title
+                }
+            }
+        });
+    }
 
 });
